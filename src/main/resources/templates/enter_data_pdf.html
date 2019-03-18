@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <title>Hello Templates</title>
+    <title>Enter Data</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
 <body>
-    <h1>Hello this is in the page info personnel</h1>
+    <h1>Hello this is the page to enter the personnel info</h1>
     <p th:text="'Hello, ' + ${info} + '!'" />
+    <p th:text="'Hello, ' + ${pdf.email} + '!'" />
 
 
     <form action="#" th:action="@{/pdf}" th:object="${pdf}" method="post">
-        <input type="submit" id="submitButtonInfoPerson" th:value="Save">
         <table>
             <thead>
                 <tr>
@@ -20,13 +20,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><label>nom: </label></td> <td><input th:field="${pdf.nom}"/></td>
+                    <td><label>name: </label></td> <td><input th:field="${pdf.name}"/></td>
                 </tr>
                 <tr>
                     <td><label>age: </label></td> <td><input th:field="${pdf.age}"/></td>
                 </tr>
                 <tr>
-                    <td><label>adresse: </label></td> <td><input th:field="${pdf.adresse}"/></td>
+                    <td><label>adress: </label></td> <td><input th:field="${pdf.adress}"/></td>
                 </tr>
                 <tr>
                     <td><label>telephone: </label></td> <td><input th:field="${pdf.telephone}"/></td>
@@ -36,6 +36,7 @@
                 </tr>
             </tbody>
         </table>
+        <input type="submit" id="submitButtonInfoPerson" th:value="Save">
     </form>
 
 

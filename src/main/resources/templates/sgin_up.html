@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sgin Up</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <h1> Page for sgin up </h1>
+    <p th:text="'Hello, ' + ${info} + '!'" />
+    <p th:text="'Hello, ' + ${member.compte} + '!'" />
+
+
+
+    <!--<form action="#" th:action="@{/member}" th:object="${member}" method="post">-->
+        <!--<table>-->
+            <!--<tbody>-->
+                <!--<tr>-->
+                    <!--<td><label>name: </label></td> <td><input th:field="${member.compte}"/></td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td><label>password: </label></td> <td><input th:field="${member.password}"/></td>-->
+                <!--</tr>-->
+                <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td><label>verifie password: </label></td> <td><input /></td>&ndash;&gt;-->
+                <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--</tbody>-->
+        <!--</table>-->
+
+        <!--<input type="submit" id="submitButtonSginUp" th:value="Sgin UP">-->
+    <!--</form>-->
+
+</body>
+
+</html>

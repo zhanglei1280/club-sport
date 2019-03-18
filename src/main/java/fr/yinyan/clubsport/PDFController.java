@@ -27,12 +27,11 @@ public class PDFController
     }
 
 
-
     @PostMapping("/pdf")
     public void creerPDF(@ModelAttribute PDF pdfa, Model model, HttpServletResponse response)
     {
         this.pdf = pdfa;
-        System.out.println(pdf.getNom());
+        System.out.println(pdf.getName());
         model.addAttribute("pdf", pdf);
         Document document = new Document();
         try
@@ -40,9 +39,9 @@ public class PDFController
             PdfWriter.getInstance(document, response.getOutputStream());
             document.open();
             document.add(new Paragraph("this is a test of pdf"));
-            document.add(new Paragraph(pdf.nom));
+            document.add(new Paragraph(pdf.name));
             document.add(new Paragraph(pdf.age));
-            document.add(new Paragraph(pdf.adresse));
+            document.add(new Paragraph(pdf.adress));
             document.add(new Paragraph(pdf.telephone));
             document.add(new Paragraph(pdf.email));
         }
@@ -62,18 +61,11 @@ public class PDFController
     }
 
 
-    @GetMapping("/saisir_data_pdf")
+    @GetMapping("/enter_data_pdf")
     public String saisirDataPDF(Model model)
     {
         model.addAttribute("pdf", pdf);
         model.addAttribute("info", "something");
-        return "saisir_data_pdf"; // nom de fichier html
-    }
-
-    @GetMapping("/inscrire")
-    public String inscrire(Model model)
-    {
-//        model.addAttribute("pdf", pdf);
-        return "/inscrire";
+        return "enter_data_pdf"; // nom de fichier html
     }
 }

@@ -5,28 +5,28 @@ import org.springframework.stereotype.Service;
 @Service
 public class PDF
 {
-    public String nom;
+    public String name;
     public String age;
-    public String adresse;
+    public String adress;
     public String telephone;
-    public String email;
+    public String email = "11111";
 
-    public PDF withInfo(String nom, String age, String adresse, String telephone, String email)
+    public PDF withInfo(String name, String age, String adress, String telephone, String email)
     {
-        this.nom = nom;
+        this.name = name;
         this.age = age;
-        this.adresse = adresse;
+        this.adress = adress;
         this.telephone = telephone;
         this.email = email;
         return this;
     }
 
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String name) {
+        this.name = name;
     }
 
 
@@ -38,12 +38,12 @@ public class PDF
         this.age = age;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public String getadress() {
+        return adress;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public void setadress(String adress) {
+        this.adress = adress;
     }
 
     public String getTelephone() {

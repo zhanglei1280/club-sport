@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" >
 <head>
     <title>Member</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -7,7 +8,7 @@
 
 <body>
 <h1> Page pour affhicer un member</h1>
-
+<p th:text="'Hello, ' + ${member.getCompte()} + '!'" />
 
 
 </body>
