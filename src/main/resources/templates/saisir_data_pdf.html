@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>Hello Templates</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <h1>Hello this is in the page info personnel</h1>
+    <p th:text="'Hello, ' + ${info} + '!'" />
+
+
+    <form action="#" th:action="@{/pdf}" th:object="${pdf}" method="post">
+        <input type="submit" id="submitButtonInfoPerson" th:value="Save">
+        <table>
+            <thead>
+                <tr>
+                          <th>option</th>                           <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><label>nom: </label></td> <td><input th:field="${pdf.nom}"/></td>
+                </tr>
+                <tr>
+                    <td><label>age: </label></td> <td><input th:field="${pdf.age}"/></td>
+                </tr>
+                <tr>
+                    <td><label>adresse: </label></td> <td><input th:field="${pdf.adresse}"/></td>
+                </tr>
+                <tr>
+                    <td><label>telephone: </label></td> <td><input th:field="${pdf.telephone}"/></td>
+                </tr>
+                <tr>
+                    <td><label>email: </label></td> <td><input th:field="${pdf.email}"/></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>PDF</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <h1>Hello this is in the page pdf</h1>
+    <p th:text="'nom, ' + ${pdf.nom} + '!'" />
+    <p th:text="'age, ' + ${pdf.age} + '!'" />
+    <p th:text="'adresse, ' + ${pdf.adresse} + '!'" />
+    <p th:text="'telephone, ' + ${pdf.telephone} + '!'" />
+    <p th:text="'email, ' + ${pdf.email} + '!'" />
+
+</body>
+
+</html>

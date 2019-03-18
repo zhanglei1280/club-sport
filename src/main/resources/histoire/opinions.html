@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th> Title</th>
+        <th> Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${opinions.empty}">
+        <td colspan="2"> No opinion expressed</td>
+    </tr>
+    <tr th:each="opinion : ${opinions}">
+        <td><span th:text="${opinion.title}"> Title </span></td>
+        <td><span th:text="${opinion.description}"> Description </span></td>
+    </tr>
+    </tbody>
+
+</table>
+
+
+</body>
+</html>

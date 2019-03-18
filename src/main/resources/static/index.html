@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Hello Sport</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <h1> Hello Sport Club</h1>
+
+    <p>page pour generer un pdf <a href="/saisir_data_pdf">here</a></p>
+    <p>page pour s'inscrire <a href="/inscrire">here</a></p>
+
+    <form action="/member" method="post">
+        <div>
+            <label>nom: </label>
+            <input id="nom" type="text">
+        </div>
+
+        <div>
+            <label>age: </label>
+            <input id="age" type="text">
+        </div>
+        <button id="submit">envoyer</button>
+    </form>
+
+
+</body>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/page.js"></script>
+</html>
