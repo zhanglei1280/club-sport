@@ -3,16 +3,277 @@
 <head>
     <title>Accueil Club Sport</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 
 <body>
-    <h1> Accueil of Sport Club</h1>
+    <div class="jumbotron text-center" style="margin-bottom:20px">
+        <h1>Sport Club</h1>
+        <p>Just enjoy your life</p>
+    </div>
 
-    <p>page for pdf <a href="/enter_data_pdf">here</a></p>
-    <p>page for sign up <a href="/sgin_up">here</a></p>
-    <p>page for sign in <a href="/sgin_in">here</a></p>
+    <div class="container">
+        <ul class="nav nav-tabs" role="tablist" style="margin-bottom:20px">
+            <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+            <li><a data-toggle="tab" href="#club">Club</a></li>
+            <li><a data-toggle="tab" href="#tool">Tool</a></li>
+            <li><a data-toggle="tab" href="#sgin">Sgin</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <!-- home ------------------------------------------------------------------------------------------------->
+            <div id="home" class="tab-pane fade in active">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Our goal
+                        </h3>
+                    </div>
+                    <div class="text-center">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <i class="fa fa-arrow-circle-up" style="font-size:80px;color:deepskyblue;margin-top:20px"></i>
+                                <h3>Higher</h3>
+                            </div>
+                            <div class="col-sm-4">
+                                <i class="fa fa-plane" style="font-size:80px;color:purple;margin-top:20px"></i>
+                                <h3>Faster</h3>
+                            </div>
+                            <div class="col-sm-4">
+                                <i class="fa fa-hand-grab-o" style="font-size:80px;color:gray;padding-top:20px"></i>
+                                <h3>Stronger</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Our mission
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Our mission is to make your sporting life easier and more professional.</p>
+                        <p>From now on, exercise with us and enjoy life.</p>
+                        Since 1850 we have served all the students of Savoie University.
+                        We have trained 100 world champions, 200 Olympic champions, and received countless awards.
+                        Our duty is to train the best athletes in the world.
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Our activity
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div id="myCarousel" class="carousel slide">
+                            <!-- 轮播（Carousel）指标 -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                                <li data-target="#myCarousel" data-slide-to="3"></li>
+
+                            </ol>
+                            <!-- 轮播（Carousel）项目 -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="/image/velo.jpeg" alt="First slide">
+                                    <div class="carousel-caption">Bike</div>
+                                </div>
+
+                                <div class="item">
+                                    <img src="/image/foot.jpeg" alt="Second slide">
+                                    <div class="carousel-caption">Young girls</div>
+                                </div>
+
+                                <div class="item">
+                                    <img src="/image/gymnase.jpeg" alt="Third slide">
+                                    <div class="carousel-caption">Gymnasium</div>
+                                </div>
+
+                                <div class="item">
+                                    <img src="/image/kobe2.jpg" alt="Fouth slide">
+                                    <div class="carousel-caption">NBA</div>
+                                </div>
+
+                            </div>
+                            <!-- 轮播（Carousel）导航 -->
+                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            News
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>This week, the school will hold a basketball spring games. </p>
+                        <p>The 30 teams that will be registered will be eligible to participate. </p>
+                        <p>The final championship will be won by the President for a private sponsor of $1 million.</p>
+                        <p>Come on, friends, take action.</p>
+                    </div>
+                </div>
+
+                <div class="text-center" style="border: 1px whitesmoke solid; margin-bottom:20px;padding: 20px">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h3>Jacob</h3>
+                            <p>Jacob bellecompete</p>
+                            <img src="/image/accueil_jacob.jpeg" class="img-thumbnail">
+                        </div>
+                        <div class="col-sm-4">
+                            <img src="/image/accueil_bourget.jpeg" class="img-thumbnail">
+                        </div>
+                        <div class="col-sm-4">
+                            <h3>Annecy</h3>
+                            <img src="/image/accueil_student.jpeg" class="img-thumbnail">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- home ------------------------------------------------------------------------------------------------->
+
+
+            <!-- club ------------------------------------------------------------------------------------------------->
+            <div id="club" class="tab-pane fade">
+                <h3>show clubs</h3>
+                <p>all the clubs </p>
+            </div>
+            <!-- club ------------------------------------------------------------------------------------------------->
+
+
+            <!-- tool ------------------------------------------------------------------------------------------------->
+            <div id="tool" class="tab-pane fade">
+                <div style="border: 1px whitesmoke solid; margin-bottom:20px; padding:20px">
+                    <h3>Tool</h3>
+                    <p>Here are some tools to help you get your registration done better.</p>
+
+                    <!--<div class="panel-body">-->
+                        <!--<p>This week, the school will hold a basketball spring games. </p>-->
+                        <!--<p>The 30 teams that will be registered will be eligible to participate. </p>-->
+                        <!--<p>The final championship will be won by the President for a private sponsor of $1 million.</p>-->
+                        <!--<p>Come on, friends, take action.</p>-->
+                </div>
+
+
+
+                <div class="text-center" style="border: 1px whitesmoke solid; margin-bottom:20px">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h3>PDF</h3>
+                            <p>To make it more easy to</p>
+                            <p>get your personnel application form</p>
+                            <div class="text-center">
+                                <a href="/enter_data_pdf">
+                                    <div class="fa fa-file-pdf-o" style="font-size:80px;color:gray;margin-bottom:20px"></div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <h3>Something to do ... </h3>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <h3>Something else ... </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- tool ------------------------------------------------------------------------------------------------->
+
+
+            <!-- sgin -------------------------------------------------------------------------------------------------->
+            <div id="sgin" class="tab-pane fade">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">You want join a club, but you do not have a compte</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p class="text-center"><a href="/sgin_up">click here to sgin up</a></p>
+                    </div>
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">You have already a compte</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p class="text-center"><a href="/sgin_in">click here to sgin in</a></p>
+                    </div>
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">If you are a administrateur of a club</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p class="text-center"><a href="/sgin_up">click here to manage your club</a></p>
+                    </div>
+                </div>
+
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Club manager channel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p class="text-center"><a href="/sgin_in_manager">sgin in to manage all the clubs</a></p>
+                    </div>
+                </div>
+
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Other questions</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p class="text-center"><a href="/sgin_up">others</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- sgin ------------------------------------------------------------------------------------------------->
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <p>zhanglei1280@foxmail.com</p>
+    </div>
+
 
 </body>
-<script src="../js/jquery.min.js"></script>
-<script src="../js/page.js"></script>
 </html>

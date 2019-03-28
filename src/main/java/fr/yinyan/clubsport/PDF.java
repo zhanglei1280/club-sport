@@ -9,15 +9,22 @@ public class PDF
     public String age;
     public String adress;
     public String telephone;
-    public String email = "11111";
+    public String email;
+    public String sport;
+    public String level;
+    public String other;
 
-    public PDF withInfo(String name, String age, String adress, String telephone, String email)
+
+    public PDF withInfo(String name, String age, String adress, String telephone, String email, String sport, String level, String other)
     {
         this.name = name;
         this.age = age;
         this.adress = adress;
         this.telephone = telephone;
         this.email = email;
+        this.sport = sport;
+        this.level = level;
+        this.other = other;
         return this;
     }
 
@@ -28,7 +35,6 @@ public class PDF
     public void setName(String name) {
         this.name = name;
     }
-
 
     public String getAge() {
         return age;
@@ -62,4 +68,35 @@ public class PDF
         this.email = email;
     }
 
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public String getSport() {
+        return sport;
+    }
+
+    public void setSport(String sport) {
+        this.sport = sport;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getOther() {
+        return other;
+    }
+
+    public void setOther(String other) {
+        this.other = other;
+    }
 }

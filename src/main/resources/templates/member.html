@@ -8,9 +8,12 @@
 
 <body>
 <h1> Page pour affhicer un member</h1>
-<p th:text="'Hello, ' + ${member.getCompte()} + '!'" />
 
+    <p th:text="'Hello, ' + ${member.username} + '!'" />
+    <p th:text="'your compte is, ' + ${member.compte} + '!'" />
+    <p th:text="'and your password is, ' + ${member.password} + '!'" />
 
+    <!--<p>clik <a href="/enter_data_pdf">here</a> to go to your home page</p>-->
 </body>
 
 </html>

@@ -31,19 +31,23 @@ public class PDFController
     public void creerPDF(@ModelAttribute PDF pdfa, Model model, HttpServletResponse response)
     {
         this.pdf = pdfa;
-        System.out.println(pdf.getName());
+        System.out.println("create a pdf with the name: " + pdf.getName());
         model.addAttribute("pdf", pdf);
         Document document = new Document();
         try
         {
             PdfWriter.getInstance(document, response.getOutputStream());
             document.open();
-            document.add(new Paragraph("this is a test of pdf"));
-            document.add(new Paragraph(pdf.name));
-            document.add(new Paragraph(pdf.age));
-            document.add(new Paragraph(pdf.adress));
-            document.add(new Paragraph(pdf.telephone));
-            document.add(new Paragraph(pdf.email));
+            document.add(new Paragraph("Application form"));
+            document.add(new Paragraph("Name: " + pdf.name));
+            document.add(new Paragraph("Age: " + pdf.age));
+            document.add(new Paragraph("Telephone: " + pdf.telephone));
+            document.add(new Paragraph("Email: " + pdf.email));
+            document.add(new Paragraph("Adress: " + pdf.adress));
+            document.add(new Paragraph("Sport: " + pdf.sport));
+            document.add(new Paragraph("Level: " + pdf.level));
+            document.add(new Paragraph("Other: " + pdf.other));
+
         }
         catch (FileNotFoundException e)
         {
@@ -65,7 +69,6 @@ public class PDFController
     public String saisirDataPDF(Model model)
     {
         model.addAttribute("pdf", pdf);
-        model.addAttribute("info", "something");
         return "enter_data_pdf"; // nom de fichier html
     }
 }

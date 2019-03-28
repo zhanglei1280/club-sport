@@ -3,41 +3,85 @@
 <head>
     <title>Enter Data</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/foundation/5.5.3/js/foundation.min.js"></script>
+    <script src="https://cdn.staticfile.org/foundation/5.5.3/js/vendor/modernizr.js"></script>
+
 </head>
 
 <body>
-    <h1>Hello this is the page to enter the personnel info</h1>
-    <p th:text="'Hello, ' + ${info} + '!'" />
-    <p th:text="'Hello, ' + ${pdf.email} + '!'" />
+    <div class="text-center" style="margin-bottom: 30px;margin-top: 30px">
+        <h1>Application form</h1>
+    </div>
 
+    <div class="row" style="border: 1px gray solid;padding:25px; border-radius: 10px">
+        <form action="#" th:action="@{/pdf}" th:object="${pdf}" method="post">
+            <div class="row">
+                <div class="small-5 columns">
+                    <label>Name
+                        <input th:field="${pdf.name}" placeholder="4 - 100 characters"/>
+                    </label>
+                </div>
+            </div>
 
-    <form action="#" th:action="@{/pdf}" th:object="${pdf}" method="post">
-        <table>
-            <thead>
-                <tr>
-                          <th>option</th>                           <th>Data</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><label>name: </label></td> <td><input th:field="${pdf.name}"/></td>
-                </tr>
-                <tr>
-                    <td><label>age: </label></td> <td><input th:field="${pdf.age}"/></td>
-                </tr>
-                <tr>
-                    <td><label>adress: </label></td> <td><input th:field="${pdf.adress}"/></td>
-                </tr>
-                <tr>
-                    <td><label>telephone: </label></td> <td><input th:field="${pdf.telephone}"/></td>
-                </tr>
-                <tr>
-                    <td><label>email: </label></td> <td><input th:field="${pdf.email}"/></td>
-                </tr>
-            </tbody>
-        </table>
-        <input type="submit" id="submitButtonInfoPerson" th:value="Save">
-    </form>
+            <div class="row">
+                <div class="small-5 columns">
+                    <label>Age
+                        <input th:field="${pdf.age}" placeholder="integer of 1 - 200"/>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="medium-5 columns">
+                    <label>Telephone
+                        <input th:field="${pdf.telephone}" placeholder="Telephone"/>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="medium-5 columns">
+                    <label>Email
+                        <input th:field="${pdf.email}" placeholder="email"/>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-10 medium-7 columns">
+                    <label>Adress
+                        <input th:field="${pdf.adress}" placeholder="adress"/>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="medium-4 columns">
+                    <label>Sport
+                        <input th:field="${pdf.sport}" placeholder="Name of the sport ..."/>
+                    </label>
+                </div>
+
+                <div class="medium-4 columns">
+                    <label>Level
+                        <input th:field="${pdf.level}" placeholder="A, B, C, D, ..."/>
+                    </label>
+                </div>
+
+                <div class="medium-4 columns">
+                    <label>Others
+                        <input th:field="${pdf.other}" placeholder="Others ... ">
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="button round">Submit</button>
+
+        </form>
+    </div>
 
 
 

@@ -18,7 +18,7 @@ public class PDFService {
 
     @PostConstruct
     private void postConstruct(){
-        pdf.withInfo("zhang", "24", "xxxxx", "123456", "xxxx");
+        pdf.withInfo("zhang", "24", "xxxxx", "123456", "xxxx", "sport", "A", "other");
     }
 
     public PDF getPdf() {

@@ -3,32 +3,51 @@
 <head>
     <title>Sgin Up</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <h1> Page for sgin up </h1>
-    <p th:text="'Hello, ' + ${info} + '!'" />
-    <p th:text="'Hello, ' + ${member.compte} + '!'" />
 
 
+<div class="container" style="width :500px;margin-top: 100px; border: 1px whitesmoke solid; margin-bottom: 100px; padding-bottom: 20px; padding-top: 20px">
+    <form action="#" th:action="@{/sgin_up}" th:object="${member}" method="post">
+        <div class="form-group">
+            <label>Username:</label>
+            <input class="form-control" th:field="${member.username}" placeholder="4 - 100 characters or numbers"/>
+            <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}"> Username Error</td>
+        </div>
 
-    <!--<form action="#" th:action="@{/member}" th:object="${member}" method="post">-->
-        <!--<table>-->
-            <!--<tbody>-->
-                <!--<tr>-->
-                    <!--<td><label>name: </label></td> <td><input th:field="${member.compte}"/></td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td><label>password: </label></td> <td><input th:field="${member.password}"/></td>-->
-                <!--</tr>-->
-                <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<td><label>verifie password: </label></td> <td><input /></td>&ndash;&gt;-->
-                <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-            <!--</tbody>-->
-        <!--</table>-->
+        <div class="form-group">
+            <label>Compte:</label>
+            <input type="email" class="form-control" th:field="${member.compte}" placeholder="Enter email compte">
+            <td th:if="${#fields.hasErrors('compte')}" th:errors="*{compte}"> Compte Error</td>
+        </div>
 
-        <!--<input type="submit" id="submitButtonSginUp" th:value="Sgin UP">-->
-    <!--</form>-->
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control"  th:field="${member.password}" placeholder="Enter password, 6 - 30 characters or numbers">
+            <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}"> Password Error</td>
+        </div>
+
+        <div class="form-group">
+            <label for="pwd">Verifie Password:</label>
+            <input type="password" class="form-control" th:field="${member.verifiePassword}" placeholder="Enter verifie password">
+            <td th:if="${#fields.hasErrors('verifiePassword')}" th:errors="*{verifiePassword}"> Password Error</td>
+        </div>
+
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox"> Remember me
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
 
 </body>
 
