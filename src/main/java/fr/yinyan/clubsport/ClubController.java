@@ -1,7 +1,5 @@
 package fr.yinyan.clubsport;
 
-import com.mongodb.client.MongoCollection;
-import org.bson.Document;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,16 +17,16 @@ public class ClubController
 //        this.var = var;
 //    }
 
-    @GetMapping("/sgin_in_manager")
-    public String sgin_in_manager(Model model)
+    @GetMapping("/sign_in_manager")
+    public String sign_in_manager(Model model)
     {
         model.addAttribute("compte", "compte");
         model.addAttribute("password", "passord");
-        return "sgin_in_manager";
+        return "sign_in_manager";
     }
 
-    @PostMapping("/sgin_in_manager")
-    public String sgin_in_manager_post(@ModelAttribute String compte, @ModelAttribute String password)
+    @PostMapping("/sign_in_manager")
+    public String sign_in_manager_post(@ModelAttribute String compte, @ModelAttribute String password)
     {
 
         if(compte.equals("zhanglei1280@foxmail.com") && (password.equals("123456")))
@@ -38,7 +36,8 @@ public class ClubController
         else
         {
             System.out.println("erreur of password");
-            return "sgin_in_manager";
+            return "sign_in_manager";
         }
     }
 }
+

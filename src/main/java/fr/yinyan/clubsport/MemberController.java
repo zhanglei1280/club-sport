@@ -1,7 +1,5 @@
 package fr.yinyan.clubsport;
 
-import com.mongodb.MongoClientSettings;
-import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
@@ -12,13 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.mongodb.ConnectionString;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoClient;
 
 
 import javax.validation.Valid;
-import java.util.Arrays;
 
 import static com.mongodb.client.model.Filters.eq;
 
@@ -36,16 +32,16 @@ public class MemberController
         this.member = member;
     }
 
-    @GetMapping("/sgin_up")
-    public String sgin_up(Model model)
+    @GetMapping("/sign_up")
+    public String sign_up(Model model)
     {
         model.addAttribute("member", member);
-        model.addAttribute("info", "enter the data to sgin up");
-        return "sgin_up";
+        model.addAttribute("info", "enter the data to sign up");
+        return "sign_up";
     }
 
-    @PostMapping("/sgin_up")
-    public String sgin_up_post(@Valid Member m, Model model, BindingResult bindingResult)
+    @PostMapping("/sign_up")
+    public String sign_up_post(@Valid Member m, Model model, BindingResult bindingResult)
     {
         this.member = m;
         System.out.println(member.getCompte());
@@ -53,7 +49,7 @@ public class MemberController
 
         if (bindingResult.hasErrors())
         {
-            return "redirect:/sgin_up";
+            return "redirect:/sign_up";
         }
         if(member.getPassword().equals(member.getVerifiePassword()))
         {
@@ -65,7 +61,7 @@ public class MemberController
             collection.insertOne(doc);
             return "member";
         }
-        return "sgin_up";
+        return "sign_up";
     }
 
 //    @PostMapping("/member")
@@ -77,10 +73,10 @@ public class MemberController
 //        System.out.println(member.getVerifiePassword());
 //        if(member.getPassword().equals(member.getVerifiePassword()))
 //        {
-//            System.out.println("sgin up Ok");
+//            System.out.println("sign up Ok");
 //            // inserer dans la base de donnees
 //            model.addAttribute("member", member);
-//            message = "sgin up Ok";
+//            message = "sign up Ok";
 //        }
 //        else
 //        {
@@ -96,17 +92,17 @@ public class MemberController
 
 
 
-    @GetMapping("/sgin_in")
-    public String sgin_in(Model model, Member m)
+    @GetMapping("/sign_in")
+    public String sign_in(Model model, Member m)
     {
         this.member = m;
         model.addAttribute("member", member);
-        model.addAttribute("info", "enter the data to sgin in");
-        return "sgin_in";
+        model.addAttribute("info", "enter the data to sign in");
+        return "sign_in";
     }
 
-    @PostMapping("/sgin_in")
-    public String sgin_in_post(@ModelAttribute Member m)
+    @PostMapping("/sign_in")
+    public String sign_in_post(@ModelAttribute Member m)
     {
         MongoCollection<Document> collection = database.getCollection("Member");
         try
@@ -121,19 +117,19 @@ public class MemberController
             else
             {
                 System.out.println("erreur of password");
-                return "sgin_in";
+                return "sign_in";
             }
         }
 
         catch (Exception e)
         {
             System.out.println("eurrer");
-            return "sgin_in";
+            return "sign_in";
         }
     }
 
-//    @PostMapping("/sgin_in_post")
-//    public String sgin_in_post(@ModelAttribute String compte, String password)
+//    @PostMapping("/sign_in_post")
+//    public String sign_in_post(@ModelAttribute String compte, String password)
 //    {
 //        MongoCollection<Document> collection = database.getCollection("Member");
 //        try
@@ -150,11 +146,11 @@ public class MemberController
 //        }
 //
 //    }
-//    @GetMapping("/sgin_in_manager")
-//    public String sgin_up_manager(Model model)
+//    @GetMapping("/sign_in_manager")
+//    public String sign_up_manager(Model model)
 //    {
 //        model.addAttribute("var", "var test");
-//        return "sgin_in_manager";
+//        return "sign_in_manager";
 //    }
 
 

@@ -58,8 +58,6 @@ public class Club
         this.nbMemberRest = nbMemberRest;
     }
 
-
-
     public List<Member> getMembers()
     {
         return members;
