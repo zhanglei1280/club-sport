@@ -4,6 +4,13 @@ import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
+
+import java.security.Key;
 
 @Service
 public class Member
@@ -24,6 +31,10 @@ public class Member
     @Size(min=6, max=30)
     private String verifiePassword;
 
+    private ArrayList<String> tokens = new ArrayList<String>();
+
+    private Key key;
+
 
     public Member(){}
 
@@ -32,6 +43,8 @@ public class Member
         this.username = username;
         this.compte = compte;
         this.password = password;
+        this.key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+        this.generateToken();
     }
 
     public String getUsername()
@@ -71,4 +84,16 @@ public class Member
     public void setVerifiePassword(String verifiePassword) {
         this.verifiePassword = verifiePassword;
     }
+
+    public String generateToken(){
+        String jws = Jwts.builder().setSubject(username).signWith(key).compact();
+        this.tokens.add(jws);
+        return jws;
+    }
+
+    public boolean verifyToken(String token){
+        return this.tokens.contains(token);
+    }
+
+
 }
