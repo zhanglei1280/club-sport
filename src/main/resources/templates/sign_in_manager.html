@@ -13,20 +13,21 @@
 
 <div class="container" style="width :500px;margin-top: 200px; border: 1px whitesmoke solid; margin-bottom: 100px; padding-bottom: 20px; padding-top: 20px">
     <h2>page sign in manager</h2>
-    <h2 th:text="'compte: ' + ${compte} + '!'" />
-    <h2 th:text="'password: ' + ${password} + '!'" />
-    <form class="form-horizontal" action="#" th:action="@{/sign_in_manager}"  method="post">
+    <!--<h2 th:text="'compte: ' + ${compte} + '!'" />-->
+    <!--<h2 th:text="'password: ' + ${password} + '!'" />-->
+
+    <form class="form-horizontal" action="#" th:action="@{/sign_in_manager}"  th:object="${member}" method="post">
         <div class="form-group">
             <label  class="col-sm-2 control-label">Compte</label>
             <div class="col-sm-10">
-                <!--<input type="text" class="form-control" th:field="${compte}" placeholder="your email adress">-->
+                <input type="text" class="form-control" th:field="${member.compte}" placeholder="your email adress">
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-2 control-label">password</label>
             <div class="col-sm-10">
-                <!--<input type="password" class="form-control" th:field="${password}" placeholder="6-20 numbers or lettres ...">-->
+                <input type="password" class="form-control" th:field="${member.password}" placeholder="6-20 numbers or lettres ...">
             </div>
         </div>
 

@@ -2,6 +2,7 @@ package fr.yinyan.clubsport;
 
 import org.springframework.stereotype.Service;
 
+import java.awt.*;
 import java.util.List;
 
 @Service
@@ -11,7 +12,18 @@ public class Club
     private  List<Member> members;
     private Integer nbMemberRest;
     private Member administrator;
+    private Image logo;
 
+    public Image getLogo()
+    {
+        System.out.println(logo.toString());
+        return logo;
+    }
+
+    public void setLogo(Image logo)
+    {
+        this.logo = logo;
+    }
 //    public Club() {
 //        this(, , );
 //    }

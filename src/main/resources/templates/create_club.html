@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Club</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container" style="width :800px;margin-top: 100px; border: 1px whitesmoke solid; margin-bottom: 100px; padding-bottom: 20px; padding-top: 20px">
+    <div class="text-center"><h2>Create a new club</h2></div>
+
+    <form class="form-horizontal" action="#" th:action="@{/create_club}" th:object="${club}" method="post">
+        <div class="form-group">
+            <label>Club name: </label>
+            <input type="text" class="form-control" th:field="${club.clubName}" placeholder="name of the club">
+        </div>
+
+        <div class="form-group">
+            <label>Administrtor compte: </label>
+            <input type="text" class="form-control" th:field="${club.administrator.compte}" placeholder="enter a email adress">
+        </div>
+
+        <div class="form-group">
+            <label>Password: </label>
+            <input type="text" class="form-control" th:field="${club.administrator.password}" placeholder="password">
+        </div>
+
+        <div class="form-group">
+            <label>Number of the members: </label>
+            <input type="text" class="form-control" th:field="${club.nbMemberRest}" placeholder="integer ...">
+        </div>
+
+        <div class="form-group">
+            <label>Chose a logo image:</label>
+            <!--<input class="form-control" type="file" id="myFile" name="filename2" th:field="${club.logo}">-->
+        </div>
+
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

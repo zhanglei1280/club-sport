@@ -128,24 +128,24 @@ public class MemberController
         }
     }
 
-//    @PostMapping("/sign_in_post")
-//    public String sign_in_post(@ModelAttribute String compte, String password)
-//    {
-//        MongoCollection<Document> collection = database.getCollection("Member");
-//        try
-//        {
-//            Document doc = collection.find(eq("compte", compte)).first();
-//            System.out.println(doc.toJson());
-//            return "member";
-//        }
-//        catch (Exception e)
-//        {
-//            System.out.println("eurrer");
-//            Document doc = null;
-//            return "member";
-//        }
-//
-//    }
+    @PostMapping("/sign_in_post")
+    public String sign_in_post(@ModelAttribute String compte, String password)
+    {
+        MongoCollection<Document> collection = database.getCollection("Member");
+        try
+        {
+            Document doc = collection.find(eq("compte", compte)).first();
+            System.out.println(doc.toJson());
+            return "member";
+        }
+        catch (Exception e)
+        {
+            System.out.println("eurrer");
+            Document doc = null;
+            return "member";
+        }
+
+    }
 //    @GetMapping("/sign_in_manager")
 //    public String sign_up_manager(Model model)
 //    {
