@@ -12,7 +12,16 @@ public class Club
     private  List<Member> members;
     private Integer nbMemberRest;
     private Member administrator;
+    private String description;
     private Image logo;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Image getLogo()
     {

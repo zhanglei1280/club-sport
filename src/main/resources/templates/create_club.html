@@ -14,10 +14,15 @@
 <div class="container" style="width :800px;margin-top: 100px; border: 1px whitesmoke solid; margin-bottom: 100px; padding-bottom: 20px; padding-top: 20px">
     <div class="text-center"><h2>Create a new club</h2></div>
 
-    <form class="form-horizontal" action="#" th:action="@{/create_club}" th:object="${club}" method="post">
+    <form class="form-horizontal" action="#" th:action="@{/create_club_post}" th:object="${club}" method="post">
         <div class="form-group">
             <label>Club name: </label>
             <input type="text" class="form-control" th:field="${club.clubName}" placeholder="name of the club">
+        </div>
+
+        <div class="form-group">
+            <label>Club name: </label>
+            <input type="text" class="form-control" th:field="${club.description}" placeholder="description of the club">
         </div>
 
         <div class="form-group">
@@ -37,7 +42,7 @@
 
         <div class="form-group">
             <label>Chose a logo image:</label>
-            <!--<input class="form-control" type="file" id="myFile" name="filename2" th:field="${club.logo}">-->
+            <input class="form-control" type="file" id="myFile" name="filename2">
         </div>
 
         <div class="mt-3">

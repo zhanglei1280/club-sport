@@ -9,13 +9,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoClient;
-
-
 import javax.validation.Valid;
-
+import java.util.ArrayList;
 import static com.mongodb.client.model.Filters.eq;
 
 @Controller
@@ -25,7 +22,7 @@ public class MemberController
     MongoClient mongoClient = MongoClients.create();
     MongoDatabase database = mongoClient.getDatabase("club_sport");
 
-//    public MemberController(){}
+
 
     public MemberController(Member member)
     {
@@ -36,60 +33,36 @@ public class MemberController
     public String sign_up(Model model)
     {
         model.addAttribute("member", member);
-        model.addAttribute("info", "enter the data to sign up");
         return "sign_up";
     }
 
-    @PostMapping("/sign_up")
+    @PostMapping("/sign_up_post")
     public String sign_up_post(@Valid Member m, Model model, BindingResult bindingResult)
     {
         this.member = m;
-        System.out.println(member.getCompte());
-        System.out.println(member.getVerifiePassword());
+        System.out.println(m.getCompte());
+        System.out.println(m.getVerifiePassword());
 
         if (bindingResult.hasErrors())
         {
             return "redirect:/sign_up";
         }
-        if(member.getPassword().equals(member.getVerifiePassword()))
+
+        if(m.getPassword().equals(m.getVerifiePassword()))
         {
-            model.addAttribute("member", member);
+            model.addAttribute("member", m);
             MongoCollection<Document> collection = database.getCollection("Member");
-            Document doc = new Document("username", member.getUsername())
-                    .append("compte", member.getCompte())
-                    .append("password", member.getPassword());
+            ArrayList<String> tokens = new ArrayList<>();
+            tokens.add(m.generateToken());
+            Document doc = new Document("username", m.getUsername())
+                    .append("compte", m.getCompte())
+                    .append("password", m.getPassword())
+                    .append("tokens", tokens);
             collection.insertOne(doc);
             return "member";
         }
         return "sign_up";
     }
-
-//    @PostMapping("/member")
-//    public void member(@ModelAttribute Member m, Model model, String message)
-//    {
-//        this.member = m;
-//        System.out.println(member.getUsername());
-//        System.out.println(member.getCompte());
-//        System.out.println(member.getVerifiePassword());
-//        if(member.getPassword().equals(member.getVerifiePassword()))
-//        {
-//            System.out.println("sign up Ok");
-//            // inserer dans la base de donnees
-//            model.addAttribute("member", member);
-//            message = "sign up Ok";
-//        }
-//        else
-//        {
-//            System.out.println("eurrer of password");
-//            message = "eurrer of password";
-//
-//        }
-//        model.addAttribute("message", message);
-//
-//    }
-
-
-
 
 
     @GetMapping("/sign_in")
@@ -101,8 +74,8 @@ public class MemberController
         return "sign_in";
     }
 
-    @PostMapping("/sign_in")
-    public String sign_in_post(@ModelAttribute Member m)
+    @PostMapping("/sign_in_post")
+    public String sign_in_post(@ModelAttribute Member m, Model model)
     {
         MongoCollection<Document> collection = database.getCollection("Member");
         try
@@ -112,6 +85,10 @@ public class MemberController
             if(m.getPassword().equals(doc.get("password")))
             {
                 System.out.println(doc.toJson());
+                this.member.setUsername(doc.get("username").toString());
+                this.member.setCompte(doc.get("compte").toString());
+                this.member.setPassword(doc.get("password").toString()) ;
+                model.addAttribute(member);
                 return "member";
             }
             else
@@ -120,38 +97,10 @@ public class MemberController
                 return "sign_in";
             }
         }
-
         catch (Exception e)
         {
             System.out.println("eurrer");
             return "sign_in";
         }
     }
-
-    @PostMapping("/sign_in_post")
-    public String sign_in_post(@ModelAttribute String compte, String password)
-    {
-        MongoCollection<Document> collection = database.getCollection("Member");
-        try
-        {
-            Document doc = collection.find(eq("compte", compte)).first();
-            System.out.println(doc.toJson());
-            return "member";
-        }
-        catch (Exception e)
-        {
-            System.out.println("eurrer");
-            Document doc = null;
-            return "member";
-        }
-
-    }
-//    @GetMapping("/sign_in_manager")
-//    public String sign_up_manager(Model model)
-//    {
-//        model.addAttribute("var", "var test");
-//        return "sign_in_manager";
-//    }
-
-
 }

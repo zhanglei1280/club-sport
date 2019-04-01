@@ -1,15 +1,12 @@
 package fr.yinyan.clubsport;
 
 import org.springframework.stereotype.Service;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
-
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-
 import java.security.Key;
 
 @Service
@@ -33,18 +30,17 @@ public class Member
 
     private ArrayList<String> tokens = new ArrayList<String>();
 
-    private Key key;
+    private Key key =  Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
 
     public Member(){}
 
-    public Member(String username, String compte, String password)
+    public Member(String username, String compte, String password, String verifiePassword)
     {
         this.username = username;
         this.compte = compte;
         this.password = password;
-        this.key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-        this.generateToken();
+        this.verifiePassword = verifiePassword;
     }
 
     public String getUsername()
@@ -81,18 +77,14 @@ public class Member
         return verifiePassword;
     }
 
-    public void setVerifiePassword(String verifiePassword) {
+    public void setVerifiePassword(String verifiePassword)
+    {
         this.verifiePassword = verifiePassword;
     }
 
     public String generateToken(){
         String jws = Jwts.builder().setSubject(username).signWith(key).compact();
-        this.tokens.add(jws);
         return jws;
-    }
-
-    public boolean verifyToken(String token){
-        return this.tokens.contains(token);
     }
 
 

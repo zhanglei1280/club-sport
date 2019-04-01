@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Sign In</title>
+    <title>Sign In Manager</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
@@ -11,12 +11,8 @@
 <body>
 
 
-<div class="container" style="width :500px;margin-top: 200px; border: 1px whitesmoke solid; margin-bottom: 100px; padding-bottom: 20px; padding-top: 20px">
-    <h2>page sign in manager</h2>
-    <!--<h2 th:text="'compte: ' + ${compte} + '!'" />-->
-    <!--<h2 th:text="'password: ' + ${password} + '!'" />-->
-
-    <form class="form-horizontal" action="#" th:action="@{/sign_in_manager}"  th:object="${member}" method="post">
+<div class="container" style="width :500px;margin-top: 200px; border: 1px whitesmoke solid;background-color: snow;border-radius: 10px; margin-bottom: 100px; padding-bottom: 20px; padding-top: 50px">
+    <form class="form-horizontal" action="#" th:action="@{/sign_in_manager_post}"  th:object="${member}" method="post">
         <div class="form-group">
             <label  class="col-sm-2 control-label">Compte</label>
             <div class="col-sm-10">

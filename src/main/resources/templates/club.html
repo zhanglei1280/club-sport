@@ -21,7 +21,7 @@
         </div>
         <div class="col-sm-8">
             <div class="text-center" style="margin-bottom: 20px">
-                <h1 style="margin-top: 50px">Page pour affhicer un member</h1>
+                <h1 style="margin-top: 50px">Page pour affhicer un club</h1>
             </div>
         </div>
     </div>
@@ -31,9 +31,11 @@
     <div class="row" style="border: 1px whitesmoke solid; margin: 20px; border-radius: 10px">
 
         <div class="col-sm-8" style="padding: 20px">
-            <p th:text="'Hello, ' + ${member.username} + '!'" />
-            <p th:text="'your compte is: ' + ${member.compte} + '!'" />
-            <p th:text="'and your password is: ' + ${member.password} + '!'" />
+            <p th:text="'Club name: ' + ${club.clubName} + '!'" />
+            <p th:text="'Description of club: ' + ${club.description} + '!'" />
+            <p th:text="'administrator compte: ' + ${club.administrator.compte} + '!'" />
+            <p th:text="'administrator password is: ' + ${club.administrator.password} + '!'" />
+            <p th:text="'number of rest place: ' + ${club.nbMemberRest} + '!'" />
         </div>
     </div>
 </div>
